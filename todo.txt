@@ -1,0 +1,2 @@
+mobile friendly
+animate image transitions

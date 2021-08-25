@@ -3,9 +3,12 @@ import { Link } from "gatsby"
 
 // styles
 const pageStyles = {
-  color: "#232129",
+  color: "white",
   padding: "96px",
   fontFamily: "-apple-system, Roboto, sans-serif, serif",
+  backgroundColor: "#0a830a",
+  height: '100vh',
+  width: '100%'
 }
 const headingStyles = {
   marginTop: 0,
@@ -29,13 +32,9 @@ const NotFoundPage = () => {
   return (
     <main style={pageStyles}>
       <title>Not found</title>
-      <h1 style={headingStyles}>Page not found</h1>
+      <h1 style={headingStyles}>Somebody once told me...</h1>
       <p style={paragraphStyles}>
-        Sorry{" "}
-        <span role="img" aria-label="Pensive emoji">
-          😔
-        </span>{" "}
-        we couldn’t find what you were looking for.
+        This page doesn't exist
         <br />
         {process.env.NODE_ENV === "development" ? (
           <>
@@ -45,7 +44,7 @@ const NotFoundPage = () => {
           </>
         ) : null}
         <br />
-        <Link to="/">Go home</Link>.
+        <Link to="/"><span style={{color: 'cyan', textDecoration: 'none'}}>Go back to your swamp</span></Link>.
       </p>
     </main>
   )
