@@ -2,6 +2,8 @@ import * as React from "react"
 import App from './App'
 import { Helmet } from "react-helmet"
 
+import '../index.scss'
+
 const IndexPage = () => {
   return (
     <div>

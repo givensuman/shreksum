@@ -16,4 +16,4 @@ for line in script:
         shrekQuotes.append(line[len(shrekIndicator):])
 
 print(shrekQuotes)
-
+# ./shrekparse.py > ../src/quotes.js

@@ -44,7 +44,7 @@ export const quotes = [
   "All right, get out of here. All of you, move it. Come on. Let's go! Hapaya! Hapaya! Hey! Quickly. Come on! No, no! No, no. Not there. Not there.",
   // "What?",
   // "By who?",
-  "All right. Who knows where this Farquaad guy is.",
+  "All right. Who knows where this Farquaad guy is?",
   "Does anyone else know where to find him? Anyone at all? Anyone?",
   "Okay, fine. Attention, all Fairy tale things. Do not get comfortable. Your welcome is officially worn out. In fact, I'm gonna see this guy Farquaad right now, and get you all off my land and back where you came from!",
   "Oh! You! You're comin' with me.",
