@@ -3,6 +3,8 @@ import App from './App'
 import { Helmet } from "react-helmet"
 
 import '../index.scss'
+import favicon from '../images/favicon.ico'
+import shrek from '../images/shrek1.png'
 
 const IndexPage = () => {
   return (
@@ -13,7 +15,19 @@ const IndexPage = () => {
         <meta name='description' content="The world's only Shrek-themed Lorem Ipsum generator." />
         <link rel="icon" 
           type="image/png" 
-          href="../images/favicon.ico"></link>
+          href={favicon}></link>
+
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://loremshreksum.netlify.app" />
+        <meta property="og:title" content="Lorem Shreksum" />
+        <meta property="og:description" content="The world's only Shrek-themed Lorem Ipsum generator" />
+        <meta property="og:image" content={shrek} />
+
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content={shrek} />
+        <meta property="twitter:title" content="Lorem Shreksum" />
+        <meta property="twitter:description" content="The world's only Shrek-themed Lorem Ipsum generator" />
+        <meta property="twitter:image" content={shrek} />
       </Helmet>
       <App />
     </div>
