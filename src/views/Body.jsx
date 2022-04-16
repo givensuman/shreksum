@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import styled from '@emotion/styled'
+import { Copy } from 'phosphor-react'
 import 'animate.css'
 
 import vines from '../images/vines.png'
@@ -11,6 +12,7 @@ const Wrapper = styled.div`
     align-items: center;
 
     max-width: 600px;
+    height: fit-content;
     margin: 0 auto 5em;
     position: relative;
     overflow: hidden;
@@ -57,11 +59,17 @@ const Body = ({ text, show }) => {
         show ? 
         <Wrapper className='animate__animated animate__slideInUp'>
             <Button
+            className='row center'
             onClick={() => {
                 navigator.clipboard.writeText(text)
                 setButtonText('Copied!')
             }}
-            >{buttonText}</Button>
+            >
+                {buttonText}
+                <Copy weight='bold' size={'1rem'} style={{
+                    marginLeft: '0.2em'
+                }} />
+            </Button>
             <Vines src={vines} alt='Vines' show={show}
             css={`
                 top: 2em;

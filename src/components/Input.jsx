@@ -1,18 +1,26 @@
 import React, { useState } from 'react'
 import styled from '@emotion/styled'
+import { Pencil, ArrowFatUp, ArrowFatDown } from 'phosphor-react'
 
 const Number = styled.input`
     user-select: none;
-    padding: 0.2em 0 0.2em 1em;
-    max-width: 2em;
+    padding: 0.125em 0.25em;
+    width: 1.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: 1.1em;
     border-radius: 0;
     border: 1px solid black;
+    border-top: transparent;
     border-left: transparent;
     border-right: transparent;
+    transition: border 0.3s;
+    text-align: center;
 
     &:focus {
         outline: none;
+        border-color: #B0C400;
     }
     &::-webkit-outer-spin-button {
         -webkit-appearance: none;
@@ -25,13 +33,8 @@ const Number = styled.input`
 `
 
 const UpDown = styled.span`
-    user-select: none;
-    border: solid 1px black;
-    padding: 0.2em;
-    font-size: 1.1em;
     cursor: pointer;
-
-    ${props => props.radius}
+    user-select: none;
 `
 
 const Wrapper = styled.div`
@@ -70,11 +73,6 @@ const NumberInput = ({value, setValue}) => {
 
     return (
         <div>
-            <UpDown radius={`
-                border-radius: 0.2em 0 0 0.2em;
-            `}
-            onClick={() => setValue(state => state - 1)}
-            >-</UpDown>
             <Number 
             type='number' 
             value={value}
@@ -82,11 +80,6 @@ const NumberInput = ({value, setValue}) => {
             max={99}
             onChange={e => handleInput(e)}
             />
-            <UpDown radius={`
-                border-radius: 0 0.2em 0.2em 0;
-            `}
-            onClick={() => setValue(state => 1 + state)}
-            >+</UpDown>
         </div>
     )
 }
@@ -116,11 +109,26 @@ const Input = ({ triggerInput }) => {
             value={number}
             setValue={setNumber}
             />
+            <div className='col' style={{ marginLeft: '0.2em' }}>
+                <UpDown onClick={() => setNumber(state => state + 1)}>
+                    <ArrowFatUp weight='bold' />
+                </UpDown>
+                <UpDown onClick={() => setNumber(state => state - 1)}>
+                    <ArrowFatDown weight='bold' />
+                </UpDown>
+            </div>
              &nbsp; paragraphs of Shrek
         </Wrapper>
         <Button
+        className='row center'
         onClick={() => triggerInput(number)}
-        >GO(gre)</Button>
+        >
+            GO(gre)
+
+            <Pencil weigh='bold' size={'1.5rem'} style={{
+                marginLeft: '0.2em'
+            }}/>
+        </Button>
         </Container>
     )
 }
