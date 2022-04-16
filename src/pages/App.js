@@ -5,7 +5,7 @@ import Header from '../views/Header'
 import Menu from '../views/Menu'
 import Body from '../views/Body'
 
-import { quotes } from '../quotes'
+import quotes from '../../quotes/quotes.js'
 
 const Wrapper = styled.div`
     min-height: 100vh;
@@ -15,7 +15,8 @@ const Wrapper = styled.div`
 const App = () => {
     const [paragraphs, setParagraphs] = useState(3)
     const [showBody, setShowBody] = useState(false)
-    const [text, setText] = useState(['', '', '']) 
+    const [text, setText] = useState(['', '', ''])
+    const [character, setCharacter] = useState('shrek')
 
     const triggerInput = value => {
         setShowBody(true)
@@ -27,7 +28,7 @@ const App = () => {
             let paragraph = ''
             // Generate 4, 5, or 6 sentences
             let sentenceCount = Math.floor(Math.random() * 3) + 4
-            const createSentence = () => quotes[Math.floor(Math.random() * quotes.length)]
+            const createSentence = () => quotes[character][Math.floor(Math.random() * quotes[character].length)]
             let i = 0
             while (i < sentenceCount) {
                 let sentence = createSentence()
