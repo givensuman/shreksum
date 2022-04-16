@@ -1,7 +1,10 @@
 import requests
 import re
+import sys
+import pprint
 from bs4 import BeautifulSoup
 
+# shrek script
 url = "https://shrek.fandom.com/wiki/Shrek_(film)/Transcript"
 page = requests.get(url)
 
@@ -13,7 +16,10 @@ def indicator(character):
     return character + ": "
 quotes = []
 
-character = input("What character am I reading for? ")
+if len(sys.argv) == 2:
+    character = sys.argv[1]
+else:
+    character = input("What character do you want the lines for? ")
 
 for line in script:
     shrek = indicator(character.upper())
@@ -25,5 +31,9 @@ for line in script:
         if len(line.split()) > 3:
             quotes.append(line[len(shrek):])
 
-print(quotes)
-# ./shrekparse.py > ../src/quotes.js
+pp = pprint.PrettyPrinter(indent=4)
+for quote in quotes: 
+    print(quote)
+
+# example script:
+# python3 shrekparse.py shrek > ./quotes/shrek.txt
