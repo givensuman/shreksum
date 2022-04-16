@@ -30,13 +30,14 @@ const Vines = styled.img`
     max-height: 200px;
     position: absolute;
     display: ${props => props.show ? 'block' : 'none'};
+    user-select: none;
     ${props => props.css}
 `
 
 const Button = styled.button`
     font-size: 1em;
     margin-bottom: 2em;
-    padding: 0.5em;    
+    padding: 0.5em 1em;    
     border: none;
     background-color: #B0C400;
     cursor: pointer;
