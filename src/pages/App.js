@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, createContext, useContext } from 'react'
 import styled from '@emotion/styled'
 
 import Header from '../views/Header'
@@ -11,6 +11,17 @@ const Wrapper = styled.div`
     min-height: 100vh;
     width: 100%;
 `
+
+const CharacterContext = createContext(null)
+export const useCharacter = () => useContext(CharacterContext)
+
+const CharacterProvider = ({ children, value }) => {
+    return (
+        <CharacterContext.Provider value={value}>
+            {children}
+        </CharacterContext.Provider>
+    )
+}
 
 const App = () => {
     const [paragraphs, setParagraphs] = useState(3)
@@ -54,6 +65,7 @@ const App = () => {
 
     return (
         <Wrapper>
+            <CharacterProvider value={[character, setCharacter]}>
             <Header />
             <Menu
             triggerInput={triggerInput}
@@ -62,6 +74,7 @@ const App = () => {
             show={showBody}
             text={text}
             />
+            </CharacterProvider>
         </Wrapper>
     )
 }

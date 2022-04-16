@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import styled from '@emotion/styled'
 import { Pencil, ArrowFatUp, ArrowFatDown } from 'phosphor-react'
 
+import Dropdown from './Dropdown'
+
 const Number = styled.input`
     user-select: none;
     padding: 0.125em 0.25em;
@@ -117,7 +119,8 @@ const Input = ({ triggerInput }) => {
                     <ArrowFatDown weight='bold' />
                 </UpDown>
             </div>
-             &nbsp; paragraphs of Shrek
+             &nbsp; paragraphs of
+             <Dropdown />
         </Wrapper>
         <Button
         className='row center'
