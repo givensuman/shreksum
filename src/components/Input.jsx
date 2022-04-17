@@ -2,6 +2,9 @@ import React, { useState } from 'react'
 import styled from '@emotion/styled'
 import { Pencil, ArrowFatUp, ArrowFatDown } from 'phosphor-react'
 
+import characters from '../styles/characters'
+import { useCharacter } from '../pages/App'
+
 import Dropdown from './Dropdown'
 
 const Number = styled.input`
@@ -13,16 +16,14 @@ const Number = styled.input`
     align-items: center;
     font-size: 1.1em;
     border-radius: 0;
-    border: 1px solid black;
-    border-top: transparent;
-    border-left: transparent;
-    border-right: transparent;
+    border: none;
+    border-bottom: 1px solid black;
     transition: border 0.3s;
     text-align: center;
 
     &:focus {
         outline: none;
-        border-color: #B0C400;
+        border-color: ${props => characters[props.character].primary};
     }
     &::-webkit-outer-spin-button {
         -webkit-appearance: none;
@@ -55,16 +56,18 @@ const Button = styled.button`
     padding: 1em 0;
     font-size: 1.1em;
     border: none;
-    background-color: #B0C400;
+    background-color: ${props => characters[props.character].alt};
     cursor: pointer;
     transition: background-color 0.3s ease;
     box-shadow: 2px 2px 12px lightgrey;
     &:hover {
-        background-color: #C4D300;
+        background-color: ${props => characters[props.character].accent};
     }
 `
 
 const NumberInput = ({value, setValue}) => {
+
+    const [ character ] = useCharacter()
 
     const handleInput = e => {
         let value = e.target.value
@@ -81,6 +84,7 @@ const NumberInput = ({value, setValue}) => {
             min={1}
             max={99}
             onChange={e => handleInput(e)}
+            character={character}
             />
         </div>
     )
@@ -102,6 +106,7 @@ const Container = styled.div`
 
 const Input = ({ triggerInput }) => {
     const [number, setNumber] = useState(3)
+    const [ character ] = useCharacter()
 
     return (
         <Container>
@@ -125,6 +130,7 @@ const Input = ({ triggerInput }) => {
         <Button
         className='row center'
         onClick={() => triggerInput(number)}
+        character={character}
         >
             GO(gre)
 

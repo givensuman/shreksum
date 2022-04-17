@@ -3,6 +3,9 @@ import styled from '@emotion/styled'
 import { Copy } from 'phosphor-react'
 import 'animate.css'
 
+import { useCharacter } from '../pages/App'
+import characters from '../styles/characters'
+
 import vines from '../images/vines.png'
 
 const Wrapper = styled.div`
@@ -13,10 +16,10 @@ const Wrapper = styled.div`
 
     max-width: 600px;
     height: fit-content;
-    margin: 0 auto 5em;
+    margin: 5em auto 5em;
     position: relative;
     overflow: hidden;
-    padding: 0 1em;
+    padding: 0 1em 5em;
 
     @media (min-width: 768px) {
         overflow: visible;
@@ -41,17 +44,19 @@ const Button = styled.button`
     margin-bottom: 2em;
     padding: 0.5em 1em;    
     border: none;
-    background-color: #B0C400;
+    background-color: ${props => characters[props.character].alt};
     cursor: pointer;
     transition: background-color 0.3s ease;
     box-shadow: 2px 2px 12px lightgrey;
     &:hover {
-        background-color: #C4D300;
+        background-color: ${props => characters[props.character].accent};
     }
+    z-index: 2;
 `
 
 const Body = ({ text, show }) => {
     const [buttonText, setButtonText] = useState('Copy')
+    const [ character ] = useCharacter()
 
     useEffect(() => setButtonText('Copy'), [text])
 
@@ -59,6 +64,7 @@ const Body = ({ text, show }) => {
         show ? 
         <Wrapper className='animate__animated animate__slideInUp'>
             <Button
+            character={character}
             className='row center'
             onClick={() => {
                 navigator.clipboard.writeText(text)
@@ -72,8 +78,8 @@ const Body = ({ text, show }) => {
             </Button>
             <Vines src={vines} alt='Vines' show={show}
             css={`
-                top: 2em;
-                left: 1em;
+                top: 0em;
+                left: -1em;
                 @media (min-width: 768px) {
                     top: -3em;
                     left: -3em;
@@ -91,8 +97,8 @@ const Body = ({ text, show }) => {
             : null }
             <Vines src={vines} alt='Vines' show={show}
             css={`
-                bottom: 0.1em;
-                right: 1em;
+                bottom: 2em;
+                right: -1em;
                 transform: rotate(180deg);
                 @media (min-width: 768px) {
                     bottom: -3em;

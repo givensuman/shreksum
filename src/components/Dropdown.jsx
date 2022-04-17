@@ -9,6 +9,7 @@ const Entry = styled.span`
     width: 6em;
     padding: 0.25em 0 0.25em 0.5em;
     margin-left: 0.5em;
+    margin-top: 0.25em;
     cursor: pointer;
     text-align: left;
 `

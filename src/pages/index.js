@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet"
 
 import '../index.scss'
 import favicon from '../images/favicon.ico'
-import shrek from '../images/shrek1.png'
+import shrek from '../images/characters/shrek1.png'
 
 const IndexPage = () => {
   return (

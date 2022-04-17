@@ -32,6 +32,7 @@ for line in script:
             quotes.append(line[len(shrek):])
 
 pp = pprint.PrettyPrinter(indent=4)
+# pp.pprint(quotes)
 for quote in quotes: 
     print(quote)
 

@@ -7,17 +7,17 @@ const characters = {
     fiona: {
         primary: '#0a830a',
         alt: '#FFBF00',
-        accent: '#FFE5B4'
+        accent: '#f7d281'
     },
     donkey: {
-        primary: '',
-        alt: '#867764',
+        primary: '#b3a796',
+        alt: '#b3a796',
         accent: '#D2C0AD'
     },
     farquaad: {
         primary: '#8C2D12',
-        alt: '#C94533',
-        accent: '#FF8C40'
+        alt: '#eb6e52',
+        accent: '#e38776'
     }
 }
 

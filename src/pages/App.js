@@ -10,6 +10,7 @@ import quotes from '../../quotes/quotes.js'
 const Wrapper = styled.div`
     min-height: 100vh;
     width: 100%;
+    padding-bottom: 1%;
 `
 
 const CharacterContext = createContext(null)
@@ -24,17 +25,13 @@ const CharacterProvider = ({ children, value }) => {
 }
 
 const App = () => {
-    const [paragraphs, setParagraphs] = useState(3)
     const [showBody, setShowBody] = useState(false)
     const [text, setText] = useState(['', '', ''])
     const [character, setCharacter] = useState('shrek')
 
     const triggerInput = value => {
         setShowBody(true)
-        setParagraphs(value)
-    }
 
-    useEffect(() => {
         const createParagraph = () => {
             let paragraph = ''
             // Generate 4, 5, or 6 sentences
@@ -55,13 +52,13 @@ const App = () => {
 
         let textArray = []
         let i = 0
-        while (i < paragraphs) {
+        while (i < value) {
             let newParagraph = createParagraph()
             textArray.push(newParagraph)
             i++
         }
         setText(textArray)
-    }, [paragraphs])
+    }
 
     return (
         <Wrapper>
