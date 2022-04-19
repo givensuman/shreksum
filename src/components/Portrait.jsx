@@ -4,7 +4,7 @@ import { useTransition, animated } from 'react-spring'
 import useInterval from 'react-useinterval'
 import { useCharacter } from '../pages/App'
 
-import frame from '../images/frame.png'
+// import frame from '../images/frame.png'
 
 import shrek1 from '../images/characters/shrek1.png'
 import shrek2 from '../images/characters/shrek2.png'
@@ -32,23 +32,21 @@ const slides = {
 
 const Wrapper = styled.div`
     position: relative;
-    height: 200px;
-    width: 200px;
+    top: 50px;
+    height: 300px;
+    width: 300px;
     overflow: hidden;
     box-shadow: -2px 2px 12px lightgrey;
-`
 
-const Frame = styled.img`
-  height: 225px;
-  width: 210px;
-  position: absolute;
-  top: 5px;
-  left: 0;
+    @media (max-width: 768px) {
+      height: 250px;
+      width: 250px;
+    }
 `
 
 const Image = styled(animated.img)`
-    height: 200px;
-    width: 200px;
+    height: 100%;
+    width: 100%;
     position: absolute;
     z-index: -1;
 `
@@ -81,8 +79,6 @@ const Portrait = props => {
 
   return (
     <div style={{ position: 'relative' }}>
-    
-    <Frame src={frame} alt='picture frame' />
 
     <Wrapper {...props}>
       {transitions((props, item) => 

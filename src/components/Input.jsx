@@ -41,7 +41,6 @@ const UpDown = styled.span`
 `
 
 const Wrapper = styled.div`
-    box-shadow: 2px 2px 12px lightgrey;
     padding: 1em;
     display: flex;
     flex-direction: row;
@@ -96,7 +95,6 @@ const Container = styled.div`
     justify-content: center;
     align-items: center;
     position: relative;
-    bottom: 2em;
 
     @media (min-width: 768px) {
         top: 3.5em;

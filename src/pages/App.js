@@ -10,7 +10,6 @@ import quotes from '../../quotes/quotes.js'
 const Wrapper = styled.div`
     min-height: 100vh;
     width: 100%;
-    padding-bottom: 1%;
 `
 
 const CharacterContext = createContext(null)

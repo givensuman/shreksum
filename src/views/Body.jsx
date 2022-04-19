@@ -16,13 +16,16 @@ const Wrapper = styled.div`
 
     max-width: 600px;
     height: fit-content;
-    margin: 5em auto 5em;
-    position: relative;
+    margin: 7.5em auto 5em;
     overflow: hidden;
     padding: 0 1em 5em;
 
     @media (min-width: 768px) {
         overflow: visible;
+    }
+
+    @media (max-width: 768px) {
+        margin-top: 5em;
     }
 `
 
@@ -81,7 +84,7 @@ const Body = ({ text, show }) => {
                 top: 0em;
                 left: -1em;
                 @media (min-width: 768px) {
-                    top: -3em;
+                    top: 0em;
                     left: -3em;
                     opacity: 0.5;
                 }
@@ -97,11 +100,11 @@ const Body = ({ text, show }) => {
             : null }
             <Vines src={vines} alt='Vines' show={show}
             css={`
-                bottom: 2em;
+                bottom: 0em;
                 right: -1em;
                 transform: rotate(180deg);
                 @media (min-width: 768px) {
-                    bottom: -3em;
+                    bottom: 0em;
                     right: -3em;
                     opacity: 0.5;
                 }

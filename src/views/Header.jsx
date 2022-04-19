@@ -26,7 +26,7 @@ const Header = () => {
         <Wrapper>
             <Banner />
             <a href='https://www.github.com/givensuman/shreksum'>
-                <Logo src={github} alt='Github' />
+                <Logo src={github} alt='Github' className='animate__animated animate__fadeIn' />
             </a>
         </Wrapper>
     )
